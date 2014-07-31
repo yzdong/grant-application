@@ -1,0 +1,13 @@
+<%=@title%>
+<br>
+
+
+<%= form_for @application, url: {action: "complete"} do |form|%>
+	<%@selected_fields.each do |field|%> 
+		<%= field.name%>
+		<%= form.text_field field.name.to_sym %>
+		<br>
+	<%end%>
+	<%=form.submit "Apply"%>
+<%end%>
+		

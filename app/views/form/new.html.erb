@@ -1,0 +1,8 @@
+<%=@title%>
+	<%= form_tag("/form/getfields", method: "get") do %>
+		<% @grant_options.each do |grant| %>
+			<%= check_box_tag(grant.name)%>
+			<%= label_tag(grant.name)%>
+		<%end%>
+		<%= submit_tag('Submit') %>
+	<%end%>
