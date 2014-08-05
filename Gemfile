@@ -6,12 +6,12 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 
 group :development do
-	gem 'sqlite3'
+  gem 'sqlite3'
 end 
 
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Use SCSS for stylesheets
