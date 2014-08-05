@@ -2,12 +2,12 @@
 <br>
 
 
-<%= form_for @application, url: {action: "complete"} do |form|%>
+<%= form_tag(controller: "form", action: "complete", method: "get")%>
 	<%@selected_fields.each do |field|%> 
 		<%= field.name%>
-		<%= form.text_field field.name.to_sym %>
+		<%= text_field_tag(field.name.to_sym) %>
 		<br>
 	<%end%>
-	<%=form.submit "Apply"%>
-<%end%>
+<%= submit_tag "Apply"%>
+
 		

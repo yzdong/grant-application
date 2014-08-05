@@ -1,4 +1,6 @@
 class FormController < ApplicationController
+	require 'savon'
+
 	def index
 		@title = "Business Grant Portal"
 		@apply = "Apply here"
@@ -25,6 +27,16 @@ class FormController < ApplicationController
 	end
 
 	def complete 
+		@fields = []
+		client = Savon.client({wsdl: 'https://gds.appiancloud.com/suite/webservice/processmodel/TestWebService?WSDL', ssl_verify_mode: :none}) 
+		#client.call(:start, message: {username: "webservice", password: "password1", requestID: "1234", title: "Hello", description: "this is good"})
+		message_hash = {username: "webservice", password:"password1"}
+
+		params.each do |key, value| 
+			message_hash[key.to_sym] = value 
+		end
+
+		client.call(:start, message: message_hash); 
 
 	end
 end

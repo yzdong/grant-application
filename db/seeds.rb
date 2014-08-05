@@ -9,7 +9,8 @@
 
 Grant.create([{:name => "Grant1"}, {:name => "Grant2"}, {:name => "Grant3"}])
 
-Field.create([{:name => "field1", :field_type => "Text"},{:name => "field2", :field_type => "Text"},{:name => "field3", :field_type => "Text"}])
+Field.create([{:name => "requestID", :field_type => "text"},{:name => "title", :field_type => "text"},{:name => "description", :field_type => "text"}, {:name=>"name", :field_type => "text"}])
 
-Grant.find_by_name("Grant1").fields = [Field.find_by_name("field1"), Field.find_by_name("field2")]
-Grant.find_by_name("Grant2").fields = [Field.find_by_name("field2"), Field.find_by_name("field3")]
+Grant.find_by_name("Grant1").fields = [Field.find_by_name("requestID"), Field.find_by_name("title"), Field.find_by_name("name")]
+Grant.find_by_name("Grant2").fields = [Field.find_by_name("title"), Field.find_by_name("description"), Field.find_by_name("name")]
+Grant.find_by_name("Grant3").fields = [Field.find_by_name("requestID"), Field.find_by_name("name")]
