@@ -1,4 +1,4 @@
-<%=@title%>
+<h3><%=@title%></h3>
 	<%= form_tag("/form/getfields", method: "get") do %>
 		<% @grant_options.each do |grant| %>
 			<%= check_box_tag(grant.name)%>
